@@ -1,0 +1,8 @@
+{% extends "contentPage.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block page_content %}
+	<h1> Welcome {% if name %}{{name}}{% else %}Stranger{% endif %}!!</h1>
+	<p>The local date and time is {{ moment(current_time).format("LLL")}}.</p>
+	<p>This was {{ moment(current_time).fromNow(refresh = True)}}.</p>
+	{{ wtf.quick_form(form) }}
+{% endblock %}
